@@ -7,4 +7,5 @@ public class Endpoints {
 	public static final String GET_SINGLE_POST = "/posts{id}";
 	public static final String GET_ALL_COMMENTS = "/comments";
 	public static final String GET_SINGLE_COMMENT = "/comments{id}";
+	public static final String GET_COMMENTS_BY_POSTID = "/comments";
 }
