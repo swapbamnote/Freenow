@@ -53,4 +53,16 @@ public class Helper {
 	return response;
  }
 
+ public Response getAllCommentsForAPost(int postId) {
+	// TODO Auto-generated method stub
+	Response response = RestAssured
+				.given().log().all()
+				.queryParam("postId", postId)
+				.get(Endpoints.GET_COMMENTS_BY_POSTID)
+				.andReturn();
+	assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
+	 
+	return response;
+ }
+
 }
