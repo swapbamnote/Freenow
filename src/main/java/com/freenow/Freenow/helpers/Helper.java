@@ -15,6 +15,7 @@ public class Helper {
 	
 	private static final String BASE_URL = ConfigManager.getInstance().getString("baseUrl");
 	private static final String PORT = ConfigManager.getInstance().getString("port");
+	public static int userId;
 	
 	public Helper() {
 		RestAssured.baseURI = BASE_URL;
