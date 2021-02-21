@@ -1,9 +1,9 @@
 package com.freenow.Freenow.tests;
 
+
 import java.lang.reflect.Type;
 import java.util.List;
 
-import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,7 +15,6 @@ import com.freenow.Freenow.model.Comments;
 import com.freenow.Freenow.utils.EmailValidation;
 import com.freenow.Freenow.helpers.Helper;
 
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class TestGetCommentsOnPostOfUser {
@@ -28,10 +27,9 @@ public class TestGetCommentsOnPostOfUser {
 		helper = new Helper();
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void getAllUsers() {
 		Response response = helper.getAllUsers();
-		System.out.println(response.getBody().asPrettyString());
 		
 		Type type = new TypeReference<List<Users>>() {}.getType();
 		List<Users> users = response.as(type);
@@ -39,7 +37,7 @@ public class TestGetCommentsOnPostOfUser {
 		for(int i=0; i<users.size(); i++) {
 			if(users.get(i).getUsername().equalsIgnoreCase(userName)) {
 				helper.userId = users.get(i).getId();
-				//System.out.println("User Id for Samantha is: "+ helper.userId);
+				System.out.println("User Id of "+ userName +" is: "+ helper.userId);
 				break;
 			}
 		}
@@ -47,10 +45,13 @@ public class TestGetCommentsOnPostOfUser {
 		if(helper.userId ==0) {
 			throw new NullPointerException("User Not found: " + userName);
 		}
-		
+	}
+	
+	@Test(dependsOnMethods = {"getAllUsers"})
+	public void getAllPostsOfUser() {
 		if(helper.userId !=0) {
-			response = helper.getAllPosts();
-			type = new TypeReference<List<Posts>>() {}.getType();
+			Response response = helper.getAllPosts();
+			Type type = new TypeReference<List<Posts>>() {}.getType();
 			List<Posts> posts = response.as(type);
 			for(int i=0; i<posts.size(); i++) {
 				if(posts.get(i).getUserId() == helper.userId) {
@@ -61,12 +62,15 @@ public class TestGetCommentsOnPostOfUser {
 			if(helper.postIds.isEmpty()) {
 				throw new NullPointerException("No Posts by: "+ userName);
 			}
-			System.out.println("PostIds "+helper.postIds+ " of Samantha's userId= "+helper.userId);
+			System.out.println("PostIds "+helper.postIds+ " of " +userName+"'s userId= "+helper.userId);
 		}
+	}
 		
+	@Test(dependsOnMethods = {"getAllUsers", "getAllPostsOfUser"})
+	public void getAllCommentsonPostByUser() {
 		for(int i=0; i<helper.postIds.size(); i++) {
-			response = helper.getAllCommentsForAPost(helper.postIds.get(i));
-			type = new TypeReference<List<Comments>>() {}.getType();
+			Response response = helper.getAllCommentsForAPost(helper.postIds.get(i));
+			Type type = new TypeReference<List<Comments>>() {}.getType();
 			List<Comments> comments = response.as(type);
 			if(!comments.isEmpty()) {
 				for(int j=0; j<comments.size();j++) {
@@ -74,7 +78,7 @@ public class TestGetCommentsOnPostOfUser {
 					
 					System.out.println("Email Id "+ comments.get(j).getEmail()+ " for post Id "
 							+helper.postIds.get(i)
-							+ " of User Samantha having used Id "+helper.userId+ "is "+isValidEmail);
+							+ " of User "+userName+" having used Id "+helper.userId+ "is "+isValidEmail);
 				}
 			}
 			else {
@@ -83,8 +87,7 @@ public class TestGetCommentsOnPostOfUser {
 						+ userName);
 			}
 		}
+	}		
 		
-		
-	}
 
 }

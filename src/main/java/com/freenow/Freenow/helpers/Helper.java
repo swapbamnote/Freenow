@@ -11,8 +11,10 @@ import com.freenow.Freenow.Endpoints.Endpoints;
 import com.freenow.Freenow.utils.ConfigManager;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class Helper {
 	
@@ -26,43 +28,53 @@ public class Helper {
 		RestAssured.port = Integer.parseInt(PORT);
 	}
 	
- public Response getAllUsers() {
-		
+	/*public static RequestSpecification getCommonSpec() {
+		RequestSpecBuilder builder = new RequestSpecBuilder();
+		builder.setBaseUri(BASE_URL);
+		builder.setPort(Integer.parseInt(PORT));
+		builder.setContentType(ContentType.JSON);
+		RequestSpecification requestSpec = builder.build();
+		return requestSpec;
+	}*/
+	
+	public Response getAllUsers() {
+		Response response = RestAssured
+					.given().log().all()
+					.contentType(ContentType.JSON)
+					.when()
+					.get(Endpoints.GET_ALL_USERS)
+					.andReturn();
+	
+			assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
+			
+			return response;
+	 }
+	
+	 public Response getAllPosts() {
 		Response response = RestAssured
 				.given().log().all()
 				.contentType(ContentType.JSON)
 				.when()
-				.get(Endpoints.GET_ALL_USERS)
+				.get(Endpoints.GET_ALL_POSTS)
 				.andReturn();
-
+	
 		assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
 		
 		return response;
-	}
-
- public Response getAllPosts() {
-	Response response = RestAssured
-			.given().log().all()
-			.contentType(ContentType.JSON)
-			.when()
-			.get(Endpoints.GET_ALL_POSTS)
-			.andReturn();
-
-	assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
+	 }
 	
-	return response;
- }
-
- public Response getAllCommentsForAPost(int postId) {
-	// TODO Auto-generated method stub
-	Response response = RestAssured
-				.given().log().all()
-				.queryParam("postId", postId)
-				.get(Endpoints.GET_COMMENTS_BY_POSTID)
-				.andReturn();
-	assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
-	 
-	return response;
- }
+	 public Response getAllCommentsForAPost(int postId) {
+		// TODO Auto-generated method stub
+		Response response = RestAssured
+					.given().log().all()
+					.contentType(ContentType.JSON)
+					.queryParam("postId", postId)
+					.get(Endpoints.GET_COMMENTS_BY_POSTID)
+					.andReturn();
+		
+		assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
+		 
+		return response;
+	 }
 
 }
