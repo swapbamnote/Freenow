@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="FreeNow" >
+   <test name="UserPostComments" >
+	   <classes>
+       <class name="com.freenow.Freenow.tests.TestGetAllUsers" />
+       <class name="com.freenow.Freenow.tests.TestGetAllPosts" />
+       <class name="com.freenow.Freenow.tests.TestGetCommentsOnPost" />
+    </classes>
+
+   </test>
+ </suite>

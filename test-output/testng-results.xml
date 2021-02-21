@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-02-21T13:59:43Z" name="FreeNow" finished-at="2021-02-21T13:59:45Z" duration-ms="1407">
+    <groups>
+      <group name="comments">
+        <method signature="TestGetCommentsOnPost.getAllCommentsonPostByUser()[pri:0, instance:com.freenow.Freenow.tests.TestGetCommentsOnPost@15bcf458]" name="getAllCommentsonPostByUser" class="com.freenow.Freenow.tests.TestGetCommentsOnPost"/>
+      </group> <!-- comments -->
+      <group name="posts">
+        <method signature="TestGetAllPosts.getAllPostsOfUser()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllPosts@29ad44e3]" name="getAllPostsOfUser" class="com.freenow.Freenow.tests.TestGetAllPosts"/>
+      </group> <!-- posts -->
+      <group name="users">
+        <method signature="TestGetAllUsers.getAllUsers()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllUsers@408b35bf]" name="getAllUsers" class="com.freenow.Freenow.tests.TestGetAllUsers"/>
+      </group> <!-- users -->
+    </groups>
+    <test started-at="2021-02-21T13:59:43Z" name="UserPostComments" finished-at="2021-02-21T13:59:45Z" duration-ms="1407">
+      <class name="com.freenow.Freenow.tests.TestGetCommentsOnPost">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.freenow.Freenow.tests.TestGetCommentsOnPost@15bcf458]" started-at="2021-02-21T13:59:45Z" name="setup" finished-at="2021-02-21T13:59:45Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getAllCommentsonPostByUser()[pri:0, instance:com.freenow.Freenow.tests.TestGetCommentsOnPost@15bcf458]" started-at="2021-02-21T13:59:45Z" name="getAllCommentsonPostByUser" depends-on-groups="posts, users" finished-at="2021-02-21T13:59:45Z" duration-ms="195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllCommentsonPostByUser -->
+      </class> <!-- com.freenow.Freenow.tests.TestGetCommentsOnPost -->
+      <class name="com.freenow.Freenow.tests.TestGetAllPosts">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllPosts@29ad44e3]" started-at="2021-02-21T13:59:45Z" name="setup" finished-at="2021-02-21T13:59:45Z" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getAllPostsOfUser()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllPosts@29ad44e3]" started-at="2021-02-21T13:59:45Z" name="getAllPostsOfUser" depends-on-groups="users" finished-at="2021-02-21T13:59:45Z" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllPostsOfUser -->
+      </class> <!-- com.freenow.Freenow.tests.TestGetAllPosts -->
+      <class name="com.freenow.Freenow.tests.TestGetAllUsers">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllUsers@408b35bf]" started-at="2021-02-21T13:59:43Z" name="setup" finished-at="2021-02-21T13:59:44Z" duration-ms="38" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getAllUsers()[pri:0, instance:com.freenow.Freenow.tests.TestGetAllUsers@408b35bf]" started-at="2021-02-21T13:59:44Z" name="getAllUsers" finished-at="2021-02-21T13:59:45Z" duration-ms="1043" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllUsers -->
+      </class> <!-- com.freenow.Freenow.tests.TestGetAllUsers -->
+    </test> <!-- UserPostComments -->
+  </suite> <!-- FreeNow -->
+</testng-results>
