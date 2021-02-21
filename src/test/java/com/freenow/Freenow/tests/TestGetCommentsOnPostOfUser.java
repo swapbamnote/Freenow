@@ -1,38 +1,31 @@
 package com.freenow.Freenow.tests;
 
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.freenow.Freenow.model.Users;
 import com.freenow.Freenow.utils.ConfigManager;
 import com.freenow.Freenow.model.Posts;
 import com.freenow.Freenow.model.Comments;
 import com.freenow.Freenow.utils.EmailValidation;
-import com.freenow.Freenow.helpers.Helper;
-
-import io.restassured.response.Response;
+import com.freenow.Freenow.helpers.UserPostCommentsHelper;
 
 public class TestGetCommentsOnPostOfUser {
 	
-	private Helper helper;
+	private UserPostCommentsHelper helper;
 	public String userName = ConfigManager.getInstance().getString("userName");
 	
 	@BeforeClass
 	public void init() {
-		helper = new Helper();
+		helper = new UserPostCommentsHelper();
 	}
 	
 	@Test(priority=1)
 	public void getAllUsers() {
-		Response response = helper.getAllUsers();
-		
-		Type type = new TypeReference<List<Users>>() {}.getType();
-		List<Users> users = response.as(type);
+		List<Users> users = helper.getAllUsers();
 		
 		for(int i=0; i<users.size(); i++) {
 			if(users.get(i).getUsername().equalsIgnoreCase(userName)) {
@@ -50,9 +43,8 @@ public class TestGetCommentsOnPostOfUser {
 	@Test(dependsOnMethods = {"getAllUsers"})
 	public void getAllPostsOfUser() {
 		if(helper.userId !=0) {
-			Response response = helper.getAllPosts();
-			Type type = new TypeReference<List<Posts>>() {}.getType();
-			List<Posts> posts = response.as(type);
+			List<Posts> posts = helper.getAllPosts();
+			
 			for(int i=0; i<posts.size(); i++) {
 				if(posts.get(i).getUserId() == helper.userId) {
 					int postIds = posts.get(i).getId();
@@ -69,9 +61,8 @@ public class TestGetCommentsOnPostOfUser {
 	@Test(dependsOnMethods = {"getAllUsers", "getAllPostsOfUser"})
 	public void getAllCommentsonPostByUser() {
 		for(int i=0; i<helper.postIds.size(); i++) {
-			Response response = helper.getAllCommentsForAPost(helper.postIds.get(i));
-			Type type = new TypeReference<List<Comments>>() {}.getType();
-			List<Comments> comments = response.as(type);
+			List<Comments> comments = helper.getAllCommentsForAPost(helper.postIds.get(i));
+			
 			if(!comments.isEmpty()) {
 				for(int j=0; j<comments.size();j++) {
 					String isValidEmail = EmailValidation.isValid(comments.get(j).getEmail());
