@@ -22,13 +22,13 @@ import io.restassured.response.Response;
 public class UserPostCommentsHelper {
 	
 	private static final String BASE_URL = ConfigManager.getInstance().getString("baseUrl");
-	private static final String PORT = ConfigManager.getInstance().getString("port");
+	//private static final String PORT = ConfigManager.getInstance().getString("port");
 	public static int userId;
 	public static List<Integer> postIds = new ArrayList<Integer>();;
 	
 	public UserPostCommentsHelper() {
 		RestAssured.baseURI = BASE_URL;
-		RestAssured.port = Integer.parseInt(PORT);
+		//RestAssured.port = Integer.parseInt(PORT);
 	}
 	
 	public Response getAllUsers() {
