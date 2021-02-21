@@ -13,7 +13,7 @@ import com.freenow.Freenow.model.Comments;
 import com.freenow.Freenow.utils.EmailValidation;
 import com.freenow.Freenow.helpers.UserPostCommentsHelper;
 
-public class TestGetCommentsOnPostOfUser {
+public class E2E {
 	
 	private UserPostCommentsHelper helper;
 	public String userName = ConfigManager.getInstance().getString("userName");
