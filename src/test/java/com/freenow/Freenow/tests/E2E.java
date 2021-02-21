@@ -1,6 +1,7 @@
 package com.freenow.Freenow.tests;
 
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 import org.testng.annotations.BeforeClass;
@@ -11,6 +12,10 @@ import com.freenow.Freenow.utils.ConfigManager;
 import com.freenow.Freenow.model.Posts;
 import com.freenow.Freenow.model.Comments;
 import com.freenow.Freenow.utils.EmailValidation;
+
+import io.restassured.response.Response;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.freenow.Freenow.helpers.UserPostCommentsHelper;
 
 public class E2E {
@@ -25,8 +30,9 @@ public class E2E {
 	
 	@Test(priority=1)
 	public void getAllUsers() {
-		List<Users> users = helper.getAllUsers();
-		
+		Response response = helper.getAllUsers();
+		Type type = new TypeReference<List<Users>>() {}.getType();
+		List<Users> users = response.as(type);
 		for(int i=0; i<users.size(); i++) {
 			if(users.get(i).getUsername().equalsIgnoreCase(userName)) {
 				helper.userId = users.get(i).getId();

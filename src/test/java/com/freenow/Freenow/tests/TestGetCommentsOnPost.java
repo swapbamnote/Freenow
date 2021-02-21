@@ -13,8 +13,8 @@ import com.freenow.Freenow.utils.EmailValidation;
 public class TestGetCommentsOnPost extends TestBase {
 	
 	@Test(groups = {"comments"}, dependsOnGroups = {"users", "posts"})
-	
 	public void getAllCommentsonPostByUser() {
+		//logger.info("********Start Get Comments on a Post by a User Test*********");
 		for(int i=0; i<helper.postIds.size(); i++) {
 			List<Comments> comments = helper.getAllCommentsForAPost(helper.postIds.get(i));
 			

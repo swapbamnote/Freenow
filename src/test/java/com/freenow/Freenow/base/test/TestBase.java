@@ -24,27 +24,27 @@ public class TestBase {
 	public UserPostCommentsHelper helper;
 	public static int userId;
 	public static List<Integer> postIds = new ArrayList<Integer>();
-	public Logger logger;
+	//public Logger logger;
 	
 	public TestBase() {
 			helper = new UserPostCommentsHelper();
 	}
 	
-	@BeforeClass
+	/*@BeforeClass
 	public void setup(){
 		logger=Logger.getLogger("UserPostCommentsRestAPI");
 		PropertyConfigurator.configure("Log4j.properties"); 
 		logger.setLevel(Level.DEBUG);
 		
-	}
+	}*/
 	
 	@AfterClass
 	void checkResposeBody()
 	{
-		logger.info("*********** Checking Respose Body **********");
+		//logger.info("*********** Checking Respose Body **********");
 		
 		String responseBody = response.getBody().asString();
-		logger.info("Response Body==>"+responseBody);
+		//logger.info("Response Body==>"+responseBody);
 		assertTrue(responseBody!=null);
 		
 	}
@@ -52,17 +52,17 @@ public class TestBase {
 	@AfterClass
 	void checkStatusCode()
 	{
-		logger.info("*********** Checking Status Code **********");
+		//logger.info("*********** Checking Status Code **********");
 		
 		int statusCode = response.getStatusCode(); 
-		logger.info("Status Code is ==>" + statusCode); 
+		//logger.info("Status Code is ==>" + statusCode); 
 		assertEquals(statusCode, 200);
 		
 	}
-	@AfterClass
+	/*@AfterClass
 	void tearDown()
 	{
 		logger.info("********* Finished Test **********");
-	}
+	}*/
 	
 }

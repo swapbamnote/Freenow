@@ -11,6 +11,7 @@ public class TestGetAllPosts extends TestBase {
 
 	@Test(groups = {"posts"}, dependsOnGroups = {"users"})
 	public void getAllPostsOfUser() {
+		//logger.info("******** Start Get All Posts Test *********");
 		if(helper.userId !=0) {
 			List<Posts> posts = helper.getAllPosts();
 			

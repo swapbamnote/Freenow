@@ -31,7 +31,7 @@ public class UserPostCommentsHelper {
 		RestAssured.port = Integer.parseInt(PORT);
 	}
 	
-	public List<Users> getAllUsers() {
+	public Response getAllUsers() {
 		Response response = RestAssured
 					.given().log().all()
 					.contentType(ContentType.JSON)
@@ -41,9 +41,7 @@ public class UserPostCommentsHelper {
 	
 			assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
 			
-			Type type = new TypeReference<List<Users>>() {}.getType();
-			List<Users> users = response.as(type);
-			return users;
+			return response;
 	 }
 	
 	 public List<Posts> getAllPosts() {
