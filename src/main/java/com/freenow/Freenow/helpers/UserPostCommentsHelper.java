@@ -44,7 +44,7 @@ public class UserPostCommentsHelper {
 			return response;
 	 }
 	
-	 public List<Posts> getAllPosts() {
+	 public Response getAllPosts() {
 		Response response = RestAssured
 				.given().log().all()
 				.contentType(ContentType.JSON)
@@ -54,12 +54,10 @@ public class UserPostCommentsHelper {
 	
 		assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
 		
-		Type type = new TypeReference<List<Posts>>() {}.getType();
-		List<Posts> posts = response.as(type);
-		return posts;
+		return response;
 	 }
 	
-	 public List<Comments> getAllCommentsForAPost(int postId) {
+	 public Response getAllCommentsForAPost(int postId) {
 		// TODO Auto-generated method stub
 		Response response = RestAssured
 					.given().log().all()
@@ -70,9 +68,7 @@ public class UserPostCommentsHelper {
 		
 		assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
 		 
-		Type type = new TypeReference<List<Comments>>() {}.getType();
-		List<Comments> comments = response.as(type);
-		return comments;
+		return response;
 	 }
 
 	 
