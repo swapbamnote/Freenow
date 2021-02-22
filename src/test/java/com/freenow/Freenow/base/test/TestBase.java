@@ -29,7 +29,7 @@ public class TestBase {
 	@BeforeClass
 	public void setup(){
 		logger=Logger.getLogger("UserPostCommentsRestAPI");
-		PropertyConfigurator.configure("/Users/sbamnote/eclipse-workspace/Freenow/resource/log4j.properties"); 
+		PropertyConfigurator.configure("log4j.properties"); 
 		logger.setLevel(Level.DEBUG);
 		
 	}

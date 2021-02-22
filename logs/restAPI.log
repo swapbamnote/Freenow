@@ -1,6 +1,6 @@
-2021-02-22 02:15:23 INFO  UserPostCommentsRestAPI:28 - ******** Start Get All User Test *********
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:55 - *********** Checking Respose Body **********
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:58 - Response Body==>[
+2021-02-22 02:23:01 INFO  UserPostCommentsRestAPI:28 - ******** Start Get All User Test *********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:55 - *********** Checking Respose Body **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:58 - Response Body==>[
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -232,12 +232,12 @@
     }
   }
 ]
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:61 - *********** Checking Status Code **********
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:64 - Status Code is ==>200
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:67 - ********* Finished Test **********
-2021-02-22 02:15:24 INFO  UserPostCommentsRestAPI:26 - ******** Start Get All Posts Test *********
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:54 - *********** Checking Respose Body **********
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:57 - Response Body==>[
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:61 - *********** Checking Status Code **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:64 - Status Code is ==>200
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:67 - ********* Finished Test **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:26 - ******** Start Get All Posts Test *********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:54 - *********** Checking Respose Body **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:57 - Response Body==>[
   {
     "userId": 1,
     "id": 1,
@@ -839,12 +839,12 @@
     "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
   }
 ]
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:60 - *********** Checking Status Code **********
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:63 - Status Code is ==>200
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:66 - ********* Finished Test **********
-2021-02-22 02:15:25 INFO  UserPostCommentsRestAPI:29 - ********Start Get Comments on a Post by a User Test*********
-2021-02-22 02:15:26 INFO  UserPostCommentsRestAPI:63 - *********** Checking Respose Body **********
-2021-02-22 02:15:26 INFO  UserPostCommentsRestAPI:66 - Response Body==>[
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:60 - *********** Checking Status Code **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:63 - Status Code is ==>200
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:66 - ********* Finished Test **********
+2021-02-22 02:23:03 INFO  UserPostCommentsRestAPI:29 - ********Start Get Comments on a Post by a User Test*********
+2021-02-22 02:23:05 INFO  UserPostCommentsRestAPI:63 - *********** Checking Respose Body **********
+2021-02-22 02:23:05 INFO  UserPostCommentsRestAPI:66 - Response Body==>[
   {
     "postId": 30,
     "id": 146,
@@ -881,6 +881,6 @@
     "body": "est non atque eligendi aspernatur quidem earum mollitia\nminima neque nam exercitationem provident eum\nmaxime quo et ut illum sequi aut fuga repudiandae\nsapiente sed ea distinctio molestias illum consequatur libero quidem"
   }
 ]
-2021-02-22 02:15:26 INFO  UserPostCommentsRestAPI:69 - *********** Checking Status Code **********
-2021-02-22 02:15:26 INFO  UserPostCommentsRestAPI:72 - Status Code is ==>200
-2021-02-22 02:15:26 INFO  UserPostCommentsRestAPI:75 - ********* Finished Test **********
+2021-02-22 02:23:05 INFO  UserPostCommentsRestAPI:69 - *********** Checking Status Code **********
+2021-02-22 02:23:05 INFO  UserPostCommentsRestAPI:72 - Status Code is ==>200
+2021-02-22 02:23:05 INFO  UserPostCommentsRestAPI:75 - ********* Finished Test **********
